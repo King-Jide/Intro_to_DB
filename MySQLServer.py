@@ -5,7 +5,7 @@ from mysql.connector import connect, Error
 def create_database():
     try:
         # Connect to MYSQL server 
-        connection = connect(
+        connection = mysql.connector.connect(
             host='localhost',
             user= input("Enter MySQL username: "),
             password= getpass("Enter MySQL password: ")
@@ -21,10 +21,10 @@ def create_database():
         print(f"Error while connecting to MySQL: {e}")
     
     finally:
-        if  connection.is_connected():
-            connection.close()
+        if 'connection' in locals() and connection.is_connected():
+            connection.close
 
-if __name__ == "__main___":
+if __name__ == "__main__":
     create_database()
 
         
